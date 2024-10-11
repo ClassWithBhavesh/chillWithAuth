@@ -16,6 +16,7 @@ connectDB("mongodb://127.0.0.1:27017/auth")
     console.log("Database connection error : ", err);
 })
 
+server.use(express.urlencoded({extended: false}));
 server.use("/auth", userRouter);
 
 server.listen(PORT, (err) => {
@@ -23,6 +24,6 @@ server.listen(PORT, (err) => {
         console.log(`Backend server is running on port ${PORT}`);
     }
     else{
-        console.log("Encountered with an error while running the server : ", err);
+        console.log("Encountered with an error while running server : ", err);
     }
 })
