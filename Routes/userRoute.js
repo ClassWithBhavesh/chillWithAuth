@@ -1,12 +1,14 @@
 const express = require("express");
 const userRouter = express.Router();
-const {userSignUp, usersignIn} = require("../Controllers/usercontroller.js");
+const {userSignUp, usersignIn, updateUser} = require("../Controllers/usercontroller.js");
 
 userRouter.get("/signup", (req, res) => {
     res.send("Sign up route!");
 })
 
 userRouter.post("/signup", userSignUp);
+
+userRouter.patch("/:id", updateUser)
 
 userRouter.get("/signin", (req, res) => {
     res.send("sign in route!");
